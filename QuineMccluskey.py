@@ -21,7 +21,8 @@ def bin_to_dec(binary):
     return (decimal)
     
 
-def list_combine(l1, l2):     # this function is used in step2
+# this function is used in step2
+def list_combine(l1, l2):     
     return l1[:-1] + l2[:-1] + [False]
 
 
@@ -71,6 +72,8 @@ def answerify(answer):
         final_terms+=term
     return final_terms
 
+#Program flow starts from here
+
 #Take user input
 user_input_min_terms = list(map(int, input("Enter Min Terms(Space Seperated): ").split())) 
 user_input_dont_care = list(map(int, input("Enter Dont Care Terms(Space Seperated): ").split())) 
@@ -96,10 +99,6 @@ dont_care_bin = [x[2:].zfill(max_num_len) for x in dont_care_bin]
 #Convert numbers to decimal
 dont_care_dec = user_input_dont_care
 min_terms_dec = user_input_min_terms
-
-
-
-
 
 dict_terms = {}
 
@@ -127,25 +126,13 @@ for i in range(len(list_terms)):
         final_work_list[i][list_terms[i][j]] = [bin_to_dec(list_terms[i][j]), False]
         count_previous += 1
 
-
-
-
 list_dict_compare = []
 
 tbl1 = final_work_list
 
-
-
 #tbl1 is created step 1 completed
 
-
-
-
-
-
-
-
-#     --------- Step 2 starts here ---------
+# --------- Step 2 starts here ---------
 
 final_list_step = []
 
@@ -191,11 +178,8 @@ while True:
     count_previous = count_current
     cur_step += 1
 
-
-
-
-
-#Step 1 - Mark the essential prime implicants and remove them
+# --------- Step 1 Starts here ------------- 
+#Mark the essential prime implicants and remove them
 temp_dict = {}
 final_answer = []
 for key, value in un_used.items():
@@ -220,8 +204,6 @@ for i in essential_imps:
             cur_minterms = value
             final_answer.append(cur_essen)
             remove_terms(cur_minterms,un_used)
-# STEP 1 END
-
 
 while not is_empty(un_used):
     max_num = 0

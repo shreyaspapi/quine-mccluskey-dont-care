@@ -26,13 +26,10 @@ def list_combine(l1, l2):     # this function is used in step2
 
 
 def is_full(struct):
-    if(struct):
-        return True
-    return False
+    return bool((struct))
     
 def remove_dontcare(vals,dont_care):
-    vals = [x for x in vals if x not in dont_care]
-    return vals
+    return [x for x in vals if x not in dont_care]
     
 def remove_terms(to_remove,orig_dict):
     for key,value in orig_dict.items():
@@ -51,10 +48,7 @@ def count_elemi(remkey, orig_dict):
     return num
     
 def is_empty(un_used):
-    for key,value in un_used.items():
-        if value:
-            return False
-    return True
+    return not any(value for key,value in un_used.items())
     
 def answerify(answer):
     init = 97
